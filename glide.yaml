@@ -1,0 +1,14 @@
+package: github.com/timcurless/orchlift
+import:
+- package: github.com/go-kit/kit
+  version: ^0.6.0
+  subpackages:
+  - endpoint
+  - log
+  - transport/http
+  - circuitbreaker
+  - ratelimit
+- package: github.com/pborman/uuid
+  version: ^1.1.0
+- package: github.com/gorilla/mux
+  version: ^1.5.0

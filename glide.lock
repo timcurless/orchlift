@@ -1,0 +1,24 @@
+hash: ccb219a11f4745231f62a25d47b1b6b7080dcb11d433ab9909c288c774863757
+updated: 2017-11-07T20:39:09.535476084-06:00
+imports:
+- name: github.com/go-kit/kit
+  version: 4dc7be5d2d12881735283bcab7352178e190fc71
+  subpackages:
+  - circuitbreaker
+  - endpoint
+  - log
+  - ratelimit
+  - transport/http
+- name: github.com/go-logfmt/logfmt
+  version: 390ab7935ee28ec6b286364bba9b4dd6410cb3d5
+- name: github.com/go-stack/stack
+  version: 817915b46b97fd7bb80e8ab6b69f01a53ac3eebf
+- name: github.com/gorilla/context
+  version: 08b5f424b9271eedf6f9f0ce86cb9396ed337a42
+- name: github.com/gorilla/mux
+  version: 7f08801859139f86dfafd1c296e2cba9a80d292e
+- name: github.com/kr/logfmt
+  version: b84e30acd515aadc4b783ad4ff83aff3299bdfe0
+- name: github.com/pborman/uuid
+  version: e790cca94e6cc75c7064b1332e63811d4aae1a53
+testImports: []

@@ -11,10 +11,8 @@ node('docker') {
 
   stage('Create Binaries') {
     docker.image("golang:1.8.0-alpine").inside("-v ${pwd()}:${goPath}") {
-      for (command in binaryBuildCommands) {
-        // Only going to build for Linux in this example
-        sh "cd ${goPath} && GOOS=linux GOARCH=amd64 go build -o binaries/amd64/${buildNumber}/linux/${applicationName}-${buildNumber}.linux.amd64"
-      }
+      // Only going to build for Linux in this example
+      sh "cd ${goPath} && GOOS=linux GOARCH=amd64 go build -o binaries/amd64/${buildNumber}/linux/${applicationName}-${buildNumber}.linux.amd64"
     }
   }
 

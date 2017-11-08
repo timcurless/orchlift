@@ -3,6 +3,7 @@
 node('docker') {
   String applicationName = "orchlift"
   String buildNumber = "0.1.${env.BUILD_NUMBER}"
+  String goPath = "/go/src/github.com/timcurless/${applicationName}"
 
   stage('Checkout From GitHub') {
     checkout scm
@@ -10,7 +11,8 @@ node('docker') {
 
   stage('Create Binaries') {
     docker.image("golang:1.8.0-alpine").inside("-v ${pwd()}:${goPath}") {
-      sh "apk --no-cache add curl git && \
+      sh "pwd && \
+          apk --no-cache add curl git && \
           curl https://glide.sh/get | sh && \
           glide install && \
           GOOS=linux GOARCH=amd64 go build -o binaries/amd64/${buildNumber}/linux/${applicationName}-${buildNumber}.linux.amd64"

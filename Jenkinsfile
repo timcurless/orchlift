@@ -11,6 +11,7 @@ node('docker') {
   stage('Create Binaries') {
     docker.image("golang:1.8.0-alpine").inside("-v ${pwd()}") {
       sh "apk --no-cache add curl git && \
+          mkdir bin/ && \
           curl https://glide.sh/get | sh && \
           glide install && \
           GOOS=linux GOARCH=amd64 go build -o binaries/amd64/${buildNumber}/linux/${applicationName}-${buildNumber}.linux.amd64"

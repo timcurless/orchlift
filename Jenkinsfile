@@ -10,7 +10,8 @@ node('docker') {
 
   stage('Create Binaries') {
     docker.image("golang:1.8.0-alpine").inside("-v ${pwd()}") {
-      sh "apk --no-cache add git && \
+      sh "export GOPATH=$WORKSPACE && \
+          apk --no-cache add git && \
           go get -u github.com/golang/dep/cmd/dep && \
           dep ensure && \
           GOOS=linux GOARCH=amd64 go build -o binaries/amd64/${buildNumber}/linux/${applicationName}-${buildNumber}.linux.amd64"

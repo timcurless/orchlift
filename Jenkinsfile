@@ -13,7 +13,7 @@ node('docker') {
       sh "export GOPATH=$WORKSPACE && \
           apk --no-cache add git && \
           go get -u github.com/golang/dep/cmd/dep && \
-          dep ensure && \
+          $GOPATH/bin/dep ensure && \
           GOOS=linux GOARCH=amd64 go build -o binaries/amd64/${buildNumber}/linux/${applicationName}-${buildNumber}.linux.amd64"
     }
   }

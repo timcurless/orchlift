@@ -1,6 +1,13 @@
 #!/usr/bin/env groovy
 
-node('docker') {
+pipeline {
+  agent {
+    label "docker"
+  }
+  stages {
+
+  }
+}
   String applicationName = "orchlift"
   String buildNumber = "0.1.${env.BUILD_NUMBER}"
 
@@ -10,7 +17,8 @@ node('docker') {
 
   stage('Create Binaries') {
     docker.image("golang:1.8.0-alpine").inside("-v ${pwd()}") {
-      sh "export GOPATH=$WORKSPACE && \
+      sh "ls -al && \
+          export GOPATH=$WORKSPACE && \
           apk --no-cache add git && \
           go get -u github.com/golang/dep/cmd/dep && \
           ls -al src/github.com src/github.com/timcurless && \
@@ -23,4 +31,3 @@ node('docker') {
   stage('Archive Artifacts') {
     archiveArtifacts artifacts: 'binaries/**', fingerprint: true
   }
-}

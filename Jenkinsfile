@@ -1,13 +1,6 @@
 #!/usr/bin/env groovy
 
-pipeline {
-  agent {
-    label "docker"
-  }
-  stages {
-
-  }
-}
+node('docker') {
   String applicationName = "orchlift"
   String buildNumber = "0.1.${env.BUILD_NUMBER}"
 
@@ -31,3 +24,4 @@ pipeline {
   stage('Archive Artifacts') {
     archiveArtifacts artifacts: 'binaries/**', fingerprint: true
   }
+}

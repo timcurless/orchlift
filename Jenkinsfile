@@ -4,7 +4,7 @@ pipeline {
   agent {
     docker {
       image 'golang:1.8.0-alpine'
-      label 'golang'
+      label 'golang1-8-alpine'
     }
   }
   stages {

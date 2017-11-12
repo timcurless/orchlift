@@ -3,7 +3,7 @@
 pipeline {
   agent {
     docker {
-      image 'golang:1.8.0-alpine'
+      image 'buildmystartup/custom-image-with-go'
       label 'golang1-8-alpine'
     }
   }

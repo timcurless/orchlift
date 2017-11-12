@@ -4,7 +4,7 @@ pipeline {
   agent {
     docker {
       image 'buildmystartup/custom-image-with-go'
-      label 'golang1-8-alpine'
+      label 'docker'
     }
   }
   stages {

@@ -12,7 +12,7 @@ pipeline {
       steps {
         git "https://github.com/timcurless/orchlift.git"
         sh "ls -al && \
-            apk --no-cache add git && \
+            apt-get install -y git && \
             go get -u github.com/golang/dep/cmd/dep && \
             ls -al src/github.com src/github.com/timcurless && \
             cd ${env.GOPATH}/src/github.com/timcurless/orchlift && \

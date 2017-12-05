@@ -17,6 +17,10 @@ const (
 )
 
 func main() {
+  RunServer()
+}
+
+func RunServer() {
   var (
     addr = envString("PORT", defaultPort)
     httpAddr = flag.String("http.addr", ":"+addr, "HTTP listen address")
